@@ -1,0 +1,102 @@
+This exercise sheet helps you getting started with compiling you
+java source files and running the java virtual machine on your
+classes. The steps in the sheet follow Lecture 2.
+
+Throughout I assume you are working in a subdirectory called
+@exercise-1@, which is rooted in your home directory. Also I
+assume you execute all programs from the command line.
+
+ 1) Create a stub file called @Note.java@ and save it.
+    The class should contain the following definitions:
+
+    public class Note {
+    }
+
+  2) Create a file called @Main.java@, which contains the
+     following lines:
+
+    public class Main {
+        public static void main( final String[] args ) {
+            final Note note = new Note( );
+            System.out.println( note );
+        }
+    }
+
+  3) Save the file and compile your java sources. Depending on
+     your javac compiler this may require compiling each individual
+     source file:
+
+     $ javac Note.java
+     $ javac Main.java
+
+     You may have to fix errors...
+
+  4) You should now hav two class files: one for the @Note@ class and
+     one for the @Main@ class. Run your main class with the @java@
+     virtual machine:
+
+     $ ls *.class
+     Main.class    Note.class
+     $ java Main
+     # output omitted.
+
+  5) Override the @toString@ method as follows. For the moment we
+     return a canned string. In a few moments we shall let the method
+     proper instance state.
+
+     @Override
+     public String toString( ) {
+         return "default note text";
+     }
+
+  6) Save your @Note@ class. Compile your classes with @javac@ and run
+     the java JVM on the main class.
+
+     $ javac Note.java
+     $ javac Main.java
+     $ java Main
+     default note text
+
+  7) Change the line which constructs the @Note@ instance in the @Main@
+     class to the following; save your class.
+
+            final Note note = new Note( "hello world!" );
+
+  8) Insert a definition for a @String@ attribute @note@ in the @Note@
+     class, insert the following definition for the @Note@ constructor,
+     in the @Note@ class; save the class.
+
+     private final string note;
+
+     public Note( final String text ) {
+         note = text;
+     }
+
+
+  9) Save your @Note@ class. Compile your classes with @javac@ and run
+     the java JVM on the main class.
+
+     $ javac Note.java
+     $ javac Main.java
+     $ java Main
+     default note text
+
+ 10) The @note@ instance should now have the proper instance state but
+     we need to let the method @toString@ return the state. You can do
+     this by changing the @return@ statement in the method to the
+     following:
+
+         return note;
+
+ 11) Save your @Note@ class. Compile your classes with @javac@ and run
+     the java JVM on the main class.
+
+     $ javac Note.java
+     $ javac Main.java
+     $ java Main
+     hello world!
+
+ 12) Congratulations. You've dunnit! Make some more changes to the file,
+     compile the java sources and run the JVM on the main class. I
+     suggest you re-implement the @Note@ and @Main@ classes from
+     Lecture 2.
